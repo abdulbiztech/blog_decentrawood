@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from './logo.svg';
+// import './App.css';
+import Header from './components/Header/Header';
+import Blog from './components/BlogForm/Blog';
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home  from './components/home/Home'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <Home/> */}
+     {/* <BrowserRouter>
+      
+      <Routes>
+         <Header/>
+        <Route path="/" element={<Home/>}>
+      
+          <Route path="blogs" element={<Blog />} />
+    
+        </Route>
+      </Routes>
+    </BrowserRouter> */}
+          <BrowserRouter>
+
+<Routes>
+    <Route path="/" element={<Home />} />
+
+    <Route path="/players">
+    {players.map((player) => {
+        return (
+        <Route exact key={player.name} path={`/players/${player.name}`}>
+            <Player player={player} />
+        </Route>
+        );
+    })}
+    </Route>
+</Routes>  
+
+</BrowserRouter>
+   
+
+    </>
   );
 }
 
